@@ -143,7 +143,7 @@ runs:
         echo "::endgroup::"
 
         echo "::group::Installing Mistral Vibe"
-        uv tool install mistral-vibe || echo "Vibe may already be installed"
+        uv tool install mistral-vibe==3.1.0
         echo "::endgroup::"
 
     # --- Step 4: Run the orchestrator ---
@@ -164,7 +164,7 @@ runs:
         GH_TOKEN: ${{ inputs.github_token || github.token }}
         # Vibe config
         PROMPT: ${{ inputs.prompt }}
-        MODEL: ${{ inputs.model || secrets.MISTRAL_MODEL }}
+        MODEL: ${{ inputs.model }}
         MAX_TURNS: ${{ inputs.max_turns }}
         MAX_PRICE: ${{ inputs.max_price }}
         VIBE_ARGS: ${{ inputs.vibe_args }}
